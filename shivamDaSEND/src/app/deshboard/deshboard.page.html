@@ -14,11 +14,12 @@
   <div class="p1" style="margin: 10px;" *ngIf="p1==true">
     <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">{{mName}}</ion-text>
     <div style="border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;">
-      <ion-chip color="primary" *mgFor="let single of p1Do">
+      <ion-chip color="primary" >
+        <!-- *mgFor="let single of p1Do" -->
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Sweeping</ion-label>
       </ion-chip>
-      <!-- <ion-chip color="secondary">
+      <ion-chip color="secondary">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Dusting</ion-label>
       </ion-chip>
@@ -37,7 +38,7 @@
       <ion-chip color="success">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Bathroom</ion-label>
-      </ion-chip> -->
+      </ion-chip>
     </div>
   </div>
 
@@ -45,11 +46,12 @@
   <div class="p1" style="margin: 10px;" *ngIf="p2==true">
     <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">{{m1Name}}</ion-text>
     <div style="border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;">
-      <ion-chip color="success" *mgFor="let single of p2Do">
+      <ion-chip color="success" >
+        <!-- *mgFor="let single of p2Do" -->
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Sweeping</ion-label>
       </ion-chip>
-      <!-- <ion-chip color="secondary">
+      <ion-chip color="secondary">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Dusting</ion-label>
       </ion-chip>
@@ -68,7 +70,7 @@
       <ion-chip color="success">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Bathroom</ion-label>
-      </ion-chip> -->
+      </ion-chip>
     </div>
   </div>
 
