@@ -1,0 +1,241 @@
+<ion-header>
+  <ion-toolbar style="--background: rgb(255, 43, 23);--color: #fff;">
+    <ion-title text-center>Step Four</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center>
+  <div class="dodont">
+    <!-- <ion-text color="danger">
+      Select your works
+    </ion-text> -->
+
+    <!-- <ion-button  expand="block" color="warning">Select your works</ion-button> -->
+    <!-- <div style="/* background: linear-gradient(45deg, #130086, #020010); */color: #ff2b17; width: 70vw;min-height: 40px; margin: 0px auto;/* border: 1px dotted rgb(255, 43, 23);">
+      <p no-margin style="margin-top: 10px;font-size: 20px;;">Select your works</p>
+    </div> -->
+
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+
+          <ion-chip color="danger">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>Daily</ion-label>
+          </ion-chip>
+
+          <ion-card no-margin>
+            <ion-card-content style="padding: 5px !important;">
+              <ion-list no-padding style="border: 1px solid #e06d6d; padding: 10px">
+                <ion-item no-padding (click)="sweep()">
+                  <ion-label>Sweeping</ion-label>
+                  <ion-toggle color="danger" checked="{{Sweeping}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="vacu()">
+                  <ion-label>Vacuuming</ion-label>
+                  <ion-toggle color="danger" checked="{{Vacuuming}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="WashD()">
+                  <ion-label>Washing Dishes</ion-label>
+                  <ion-toggle color="danger" checked="{{Washing_dishes}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="FeedP()">
+                  <ion-label>Feeding Pets</ion-label>
+                  <ion-toggle color="danger" checked="{{Feeding_pets}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="Laundry()">
+                  <ion-label>Doing Laundry</ion-label>
+                  <ion-toggle color="danger" checked="{{Doing_laundry}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="PreMeals()">
+                  <ion-label>Preparing Meals</ion-label>
+                  <ion-toggle color="danger" checked="{{Preparing_meals}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="CleanBathrooms()">
+                  <ion-label>Cleaning Bathrooms</ion-label>
+                  <ion-toggle color="danger" checked="{{Cleaning_bathrooms}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="Dust()">
+                  <ion-label>Dusting</ion-label>
+                  <ion-toggle color="danger" checked="{{Dusting}}" slot="end"></ion-toggle>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+
+
+          <!-- <ion-item-divider color="secondary">Weekly</ion-item-divider> -->
+          <ion-chip color="secondary" style="margin-top: 15px;">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>Weekly</ion-label>
+          </ion-chip>
+
+          <ion-card no-margin>
+            <ion-card-content style="padding: 5px !important;">
+              <ion-list no-padding style="border:1px solid #29c0d2; padding: 10px;">
+                <ion-item no-padding (click)="WashBed()">
+                  <ion-label>Washing Bedding</ion-label>
+                  <ion-toggle color="secondary" checked="{{Washing_bedding}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="MoppFloor()">
+                  <ion-label>Mopping Floors</ion-label>
+                  <ion-toggle color="secondary" checked="{{Mopping_floors}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="WaterPlant()">
+                  <ion-label>Watering Plants</ion-label>
+                  <ion-toggle color="secondary" checked="{{Watering_plants}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="MowingLawn()">
+                  <ion-label>Mowing The Lawn</ion-label>
+                  <ion-toggle color="secondary" checked="{{Mowing_the_lawn}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="WeedGarden()">
+                  <ion-label>Weeding The Garden</ion-label>
+                  <ion-toggle color="secondary" checked="{{Weeding_the_garden}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="TakingTrash()">
+                  <ion-label>Taking Out The Trash</ion-label>
+                  <ion-toggle color="secondary" checked="{{Taking_out_the_trash}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="WashCar()">
+                  <ion-label>Wash The Car</ion-label>
+                  <ion-toggle color="secondary" checked="{{Wash_the_car}}" slot="end"></ion-toggle>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+
+
+          <!-- <ion-item-divider color="secondary">Monthly</ion-item-divider> -->
+          <ion-chip color="success" style="margin-top: 10px;">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>Monthly</ion-label>
+          </ion-chip>
+
+
+
+          <ion-card no-margin>
+            <ion-card-content style="padding: 5px !important;">
+              <ion-list no-padding style="border:1px solid #2fcb6b; padding: 10px;">
+                <ion-item no-padding (click)="WashWindow()">
+                  <ion-label>Washing Windows</ion-label>
+                  <ion-toggle color="success" checked="{{Washing_windows}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="BathPet()">
+                  <ion-label>Bathing Pets</ion-label>
+                  <ion-toggle color="success" checked="{{Bathing_pets}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="CleanRefrigerator()">
+                  <ion-label>Clean Refrigerator</ion-label>
+                  <ion-toggle color="success" checked="{{Clean_refrigerator}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="AirFilters()">
+                  <ion-label>Change Air Filters</ion-label>
+                  <ion-toggle color="success" checked="{{Change_air_filters}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="CleanBlinds()">
+                  <ion-label>Clean Blinds</ion-label>
+                  <ion-toggle color="success" checked="{{Clean_blinds}}" slot="end"></ion-toggle>
+                </ion-item>
+                <ion-item no-padding (click)="VacuumCurtains()">
+                  <ion-label>Vacuum Curtains</ion-label>
+                  <ion-toggle color="success" checked="{{Vacuum_curtains}}" slot="end"></ion-toggle>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+
+
+
+        </ion-col>
+
+
+        <!-- <ion-text style="display: block;margin: auto;" color="danger">
+          Kaj vagavagi korte lagbo
+        </ion-text>
+        <ion-col size="12">
+           <ion-item-divider color="primary">Daily</ion-item-divider> -->
+        <!-- <ion-list no-padding>
+            <ion-item no-padding *ngIf="!Sweeping">
+              <ion-label>Sweeping</ion-label>
+              <ion-toggle checked="{{!Sweeping}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Vacuuming">
+              <ion-label>Vacuuming</ion-label>
+              <ion-toggle checked="{{!Vacuuming}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Washing_dishes">
+              <ion-label>Washing Dishes</ion-label>
+              <ion-toggle checked="{{!Washing_dishes}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Feeding_pets">
+              <ion-label>Feeding Pets</ion-label>
+              <ion-toggle checked="{{!Feeding_pets}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Doing_laundry">
+              <ion-label>Doing Laundry</ion-label>
+              <ion-toggle checked="{{!Doing_laundry}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Preparing_meals">
+              <ion-label>Preparing Meals</ion-label>
+              <ion-toggle checked="{{!Preparing_meals}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Cleaning_bathrooms"> 
+              <ion-label>Cleaning Bathrooms</ion-label>
+              <ion-toggle checked="{{!Cleaning_bathrooms}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Dusting">
+              <ion-label>Dusting</ion-label>
+              <ion-toggle checked="{{!Dusting}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list> -->
+
+        <!-- <ion-item-divider color="secondary">Weekly</ion-item-divider> -->
+        <!-- <ion-list no-padding>
+            <ion-item no-padding *ngIf="!Washing_bedding">
+              <ion-label>Washing Bedding</ion-label>
+              <ion-toggle checked="{{!Washing_bedding}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Mopping_floors">
+              <ion-label>Mopping Floors</ion-label>
+              <ion-toggle checked="{{!Mopping_floors}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Watering_plants">
+              <ion-label>Watering Plants</ion-label>
+              <ion-toggle checked="{{!Watering_plants}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Mowing_the_lawn">
+              <ion-label>Mowing The Lawn</ion-label>
+              <ion-toggle checked="{{!Mowing_the_lawn}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Weeding_the_garden">
+              <ion-label>Weeding The Garden</ion-label>
+              <ion-toggle checked="{{!Weeding_the_garden}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Taking_out_the_trash">
+              <ion-label>Taking Out The Trash</ion-label>
+              <ion-toggle checked="{{!Taking_out_the_trash}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item no-padding *ngIf="!Wash_the_car">
+              <ion-label>Wash The Car</ion-label>
+              <ion-toggle checked="{{!Wash_the_car}}" disabled="true" slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list> 
+
+        </ion-col> --> 
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <!-- <ion-button style="--background: rgb(40, 11, 93);--color: #fff;" expand="full" (click)="next()">Next</ion-button> -->
+  <div style="width: 96vw;margin:auto auto;display: block;">
+    <ion-button fill="outline" style="--color: rgb(255, 43, 23);--border-color: rgb(255, 43, 23);--border-radius:10px;" expand="block" (click)="next()">Finish</ion-button>
+  </div>
+</ion-footer>

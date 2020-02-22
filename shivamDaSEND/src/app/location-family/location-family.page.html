@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar style="--background: rgb(255, 43, 23);--color: #fff;">
+    <ion-title text-center>Step One</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center>
+  <img src="../../assets/img/mapfamily.png" alt="">
+<div class="location">
+  <!-- <ion-item-divider style="--background: rgb(255, 0, 55);--color: #fff;">Select your Current Location</ion-item-divider> -->
+  <!-- <ion-icon style="font-size: 150px;color: rgb(40, 11, 93);margin-top: 20px;" name="map"></ion-icon> -->
+
+  <ion-list>
+    <ion-item>
+      <ion-label color="danger">Current Location</ion-label>
+      <ion-select [(ngModel)]="clocation" interface="action-sheet" placeholder="Select One" >
+        <ion-select-option value="kolata">Kolkata</ion-select-option>
+        <ion-select-option value="Siliguri">Siliguri</ion-select-option>
+        <ion-select-option value="Mumbai">Mumbai</ion-select-option>
+        <ion-select-option value="Bangalore">Bangalore</ion-select-option>
+        <ion-select-option value="Delhi">Delhi</ion-select-option>
+        <ion-select-option value="Hydrabad">Hydrabad</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <small>City Name</small>
+  </ion-list>
+</div>
+
+
+<div class="family">
+  <!-- <ion-item-divider style="--background: rgb(255, 0, 55);--color: #fff;">Select your Family Member</ion-item-divider>
+  <ion-icon style="font-size: 150px;color: rgb(40, 11, 93);"  name="people"></ion-icon> -->
+  <ion-list>
+    <ion-item>
+      <ion-label color="danger">Family Member</ion-label>
+      <ion-select [(ngModel)]="cfamily" interface="action-sheet" placeholder="Select One" >
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <small>Please Select total Number of Adults</small>
+  </ion-list>
+</div>
+
+
+</ion-content>
+<!-- <div style="width: 90vw;margin: 5vh auto  auto;display: block;">
+  <ion-button fill="outline" style="--color: rgb(255, 43, 23);--border-color: rgb(255, 43, 23);--border-radius:10px;" expand="block" (click)="next()">Next</ion-button>
+</div> -->
+
+
+<ion-footer>
+  <!-- <ion-button style="--background: rgb(40, 11, 93);--color: #fff;" expand="full" (click)="next()">Next</ion-button> -->
+  <div style="width: 90vw;margin:auto auto;display: block;">
+    <ion-button fill="outline" style="--color: rgb(255, 43, 23);--border-color: rgb(255, 43, 23);--border-radius:10px;" expand="block" (click)="next()">Next</ion-button>
+  </div>
+</ion-footer>

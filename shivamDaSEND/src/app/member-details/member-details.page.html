@@ -1,0 +1,192 @@
+<ion-header>
+  <ion-toolbar style="--background: rgb(255, 43, 23);--color: #fff;">
+    <ion-title text-center>Step Three</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center>
+  <img src="../../assets/img/profession.png" alt="">
+<div class="Member">
+
+  <div class="p1"  *ngIf="family >= 1">
+    
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{mName}}</ion-label>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{mName}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end" [(ngModel)]="jobProfile"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+   
+  </div>
+
+  <div class="p1"  *ngIf="family >= 2">
+
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m1==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{m1Name}}</ion-label>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m1==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{m1Name}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end" [(ngModel)]="jobProfile1"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div class="p1"  *ngIf="family >= 3">
+
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m2==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{m2Name}}</ion-label>
+        <!-- <ion-icon name="checkmark-circle-outline"></ion-icon> -->
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m2==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{m2Name}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end" [(ngModel)]="jobProfile2"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div class="p1"  *ngIf="family >= 4">
+
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m3==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{m3Name}}</ion-label>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m3==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{m3Name}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end" [(ngModel)]="jobProfile3"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div class="p1"  *ngIf="family >= 5">
+
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m4==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{m4Name}}</ion-label>
+        <!-- <ion-icon name="checkmark-circle-outline"></ion-icon> -->
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m4==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{m4Name}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end" [(ngModel)]="jobProfile4"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div class="p1"  *ngIf="family >= 6">
+
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m5==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{m5Name}}</ion-label>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m5==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{m5Name}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end"  [(ngModel)]="jobProfile5"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div class="p1"  *ngIf="family >= 7">
+    
+    <ion-item>
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m6==true">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>{{m6Name}}</ion-label>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m6==false">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>{{m6Name}}</ion-label>
+      </ion-chip>
+      <ion-select slot="end" [(ngModel)]="jobProfile6"  interface="action-sheet" placeholder="Job Profile">
+        <ion-select-option value="Wdesign">Web Designer</ion-select-option>
+        <ion-select-option value="WDev">Web Developer</ion-select-option>
+        <ion-select-option value="SE">System Engineer</ion-select-option>
+        <ion-select-option value="astSE">Asst. System Engineer</ion-select-option>
+        <ion-select-option value="mba">MBA</ion-select-option>
+        <ion-select-option value="Freelacer">Freelancer</ion-select-option>
+        <ion-select-option value="ca">CA</ion-select-option>
+        <ion-select-option value="Doc">Doctor</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+</div>
+
+
+</ion-content>
+
+<ion-footer>
+  <!-- <ion-button style="--background: rgb(40, 11, 93);--color: #fff;" expand="full" (click)="next()">Next</ion-button> -->
+  <div style="width: 90vw;margin:auto auto;display: block;">
+    <ion-button fill="outline" style="--color: rgb(255, 43, 23);--border-color: rgb(255, 43, 23);--border-radius:10px;" expand="block" (click)="next()">Next</ion-button>
+  </div>
+</ion-footer>
