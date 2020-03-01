@@ -1,25 +1,156 @@
 <ion-header>
   <ion-toolbar style="--background: rgb(255, 43, 23);--color: #fff;">
-    <ion-title text-center>Step Three</ion-title>
+    <ion-title text-center>Step Two</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content text-center>
-  <img src="../../assets/img/profession.png" alt="">
+  <img src="../../assets/img/familycrop.png" alt="">
+
+<div class="Member">
+
+  <div class="p1" *ngIf="family >= '1'">  
+
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m1n"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="onetapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m1==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="onetapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m1==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div>
+  
+  <div class="p1" *ngIf="family >= '2'">  
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m2n"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="twotapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m2==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="twotapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m2==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div>
+
+  <!-- <div class="p1" *ngIf="family >= '3'"> 
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m2Name"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="tretapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m2==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="tretapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m2==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div>
+
+  <div class="p1" *ngIf="family >= '4'">  
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m3Name"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="fortapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m3==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="fortapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m3==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div>
+
+  <div class="p1" *ngIf="family >= '5'">  
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m4Name"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="fivtapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m4==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="fivtapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m4==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div>
+
+  <div class="p1" *ngIf="family >= '6'">  
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m5Name"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="sixtapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m5==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="sixtapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m5==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div>
+
+  <div class="p1" *ngIf="family >= '7'">  
+    <ion-item>
+      <ion-label position="floating"><ion-icon slot="start" name="person"></ion-icon> Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="m6Name"></ion-input>
+    </ion-item>
+  
+      <ion-chip color="primary" (click)="sevtapM()">
+        <ion-icon name="man"></ion-icon>
+        <ion-label>Male</ion-label>
+        <ion-icon *ngIf="m6==true" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+      <ion-chip  color="danger" (click)="sevtapF()">
+        <ion-icon name="woman"></ion-icon>
+        <ion-label>Female</ion-label>
+        <ion-icon *ngIf="m6==false" name="checkmark-circle-outline"></ion-icon>
+      </ion-chip>
+  </div> -->
+</div>
+
 <div class="Member">
 
   <div class="p1"  *ngIf="family >= 1">
     
     <ion-item>
-      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m==true">
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m1==true">
         <ion-icon name="man"></ion-icon>
-        <ion-label>{{mName}}</ion-label>
+        <ion-label>{{m1n}}</ion-label>
       </ion-chip>
-      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m==false">
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m1==false">
         <ion-icon name="woman"></ion-icon>
-        <ion-label>{{mName}}</ion-label>
+        <ion-label>{{m1n}}</ion-label>
       </ion-chip>
-      <ion-select slot="end" [(ngModel)]="jobProfile"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end" [(ngModel)]="m1jp"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -36,15 +167,15 @@
   <div class="p1"  *ngIf="family >= 2">
 
     <ion-item>
-      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m1==true">
+      <ion-chip color="primary" (click)="onetapM()"  *ngIf="m2==true">
         <ion-icon name="man"></ion-icon>
-        <ion-label>{{m1Name}}</ion-label>
+        <ion-label>{{m2n}}</ion-label>
       </ion-chip>
-      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m1==false">
+      <ion-chip  color="danger" (click)="onetapF()" *ngIf="m2==false">
         <ion-icon name="woman"></ion-icon>
-        <ion-label>{{m1Name}}</ion-label>
+        <ion-label>{{m2n}}</ion-label>
       </ion-chip>
-      <ion-select slot="end" [(ngModel)]="jobProfile1"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end" [(ngModel)]="m2jp"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -57,19 +188,19 @@
     </ion-item>
   </div>
 
-  <div class="p1"  *ngIf="family >= 3">
+  <!-- <div class="p1"  *ngIf="family >= 3">
 
     <ion-item>
       <ion-chip color="primary" (click)="onetapM()"  *ngIf="m2==true">
         <ion-icon name="man"></ion-icon>
         <ion-label>{{m2Name}}</ion-label>
-        <!-- <ion-icon name="checkmark-circle-outline"></ion-icon> -->
+       
       </ion-chip>
       <ion-chip  color="danger" (click)="onetapF()" *ngIf="m2==false">
         <ion-icon name="woman"></ion-icon>
         <ion-label>{{m2Name}}</ion-label>
       </ion-chip>
-      <ion-select slot="end" [(ngModel)]="jobProfile2"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end" [(ngModel)]="jobProfile2"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -93,7 +224,7 @@
         <ion-icon name="woman"></ion-icon>
         <ion-label>{{m3Name}}</ion-label>
       </ion-chip>
-      <ion-select slot="end" [(ngModel)]="jobProfile3"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end" [(ngModel)]="jobProfile3"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -112,13 +243,13 @@
       <ion-chip color="primary" (click)="onetapM()"  *ngIf="m4==true">
         <ion-icon name="man"></ion-icon>
         <ion-label>{{m4Name}}</ion-label>
-        <!-- <ion-icon name="checkmark-circle-outline"></ion-icon> -->
+        
       </ion-chip>
       <ion-chip  color="danger" (click)="onetapF()" *ngIf="m4==false">
         <ion-icon name="woman"></ion-icon>
         <ion-label>{{m4Name}}</ion-label>
       </ion-chip>
-      <ion-select slot="end" [(ngModel)]="jobProfile4"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end" [(ngModel)]="jobProfile4"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -142,7 +273,7 @@
         <ion-icon name="woman"></ion-icon>
         <ion-label>{{m5Name}}</ion-label>
       </ion-chip>
-      <ion-select slot="end"  [(ngModel)]="jobProfile5"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end"  [(ngModel)]="jobProfile5"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -166,7 +297,7 @@
         <ion-icon name="woman"></ion-icon>
         <ion-label>{{m6Name}}</ion-label>
       </ion-chip>
-      <ion-select slot="end" [(ngModel)]="jobProfile6"  interface="action-sheet" placeholder="Job Profile">
+      <ion-select mode="ios" slot="end" [(ngModel)]="jobProfile6"  interface="action-sheet" placeholder="Job Profile">
         <ion-select-option value="Wdesign">Web Designer</ion-select-option>
         <ion-select-option value="WDev">Web Developer</ion-select-option>
         <ion-select-option value="SE">System Engineer</ion-select-option>
@@ -177,16 +308,18 @@
         <ion-select-option value="Doc">Doctor</ion-select-option>
       </ion-select>
     </ion-item>
-  </div>
+  </div> -->
 
 </div>
 
 
 </ion-content>
 
+
+
 <ion-footer>
-  <!-- <ion-button style="--background: rgb(40, 11, 93);--color: #fff;" expand="full" (click)="next()">Next</ion-button> -->
-  <div style="width: 90vw;margin:auto auto;display: block;">
-    <ion-button fill="outline" style="--color: rgb(255, 43, 23);--border-color: rgb(255, 43, 23);--border-radius:10px;" expand="block" (click)="next()">Next</ion-button>
-  </div>
+    <!-- <ion-button style="--background: rgb(40, 11, 93);--color: #fff;" expand="full" (click)="next()">Next</ion-button> -->
+    <div style="width: 90vw;margin:auto auto;display: block;">
+      <ion-button fill="outline" style="--color: rgb(255, 43, 23);--border-color: rgb(255, 43, 23);--border-radius:10px;" expand="block" (click)="next()">Next</ion-button>
+    </div>
 </ion-footer>

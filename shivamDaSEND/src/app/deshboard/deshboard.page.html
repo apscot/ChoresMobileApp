@@ -12,14 +12,14 @@
   </ion-fab>
 
   <div class="p1" style="margin: 10px;" *ngIf="p1==true">
-    <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">{{mName}}</ion-text>
+    <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">{{m1Name}}</ion-text>
     <div style="border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;">
-      <ion-chip color="primary" >
+      <ion-chip color="primary"  *ngFor="let single of w1">
         <!-- *mgFor="let single of p1Do" -->
-        <ion-icon name="checkmark-circle-outline" ></ion-icon>
-        <ion-label>Sweeping</ion-label>
+        <ion-icon name="checkmark-circle-outline"  ></ion-icon>
+        <ion-label>{{single}}</ion-label>
       </ion-chip>
-      <ion-chip color="secondary">
+      <!-- <ion-chip color="secondary">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Dusting</ion-label>
       </ion-chip>
@@ -38,20 +38,20 @@
       <ion-chip color="success">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Bathroom</ion-label>
-      </ion-chip>
+      </ion-chip> -->
     </div>
   </div>
 
 
   <div class="p1" style="margin: 10px;" *ngIf="p2==true">
-    <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">{{m1Name}}</ion-text>
+    <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">{{m2Name}}</ion-text>
     <div style="border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;">
-      <ion-chip color="success" >
+      <ion-chip color="success" *ngFor="let single of w2">
         <!-- *mgFor="let single of p2Do" -->
-        <ion-icon name="checkmark-circle-outline" ></ion-icon>
-        <ion-label>Sweeping</ion-label>
+        <ion-icon name="checkmark-circle-outline"  ></ion-icon>
+        <ion-label>{{single}}</ion-label>
       </ion-chip>
-      <ion-chip color="secondary">
+      <!-- <ion-chip color="secondary">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Dusting</ion-label>
       </ion-chip>
@@ -70,11 +70,11 @@
       <ion-chip color="success">
         <ion-icon name="checkmark-circle-outline" ></ion-icon>
         <ion-label>Bathroom</ion-label>
-      </ion-chip>
+      </ion-chip> -->
     </div>
   </div>
 
-  <div class="p1" style="margin: 10px;" *ngIf="p3==true">
+  <!-- <div class="p1" style="margin: 10px;" *ngIf="p3==true">
     <ion-text style="display: block;background: #fff;position: relative;top: 10px;width: 40%;left: 20px;padding-left: 20px;border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;;">P1Name</ion-text>
     <div style="border: 1px solid rgb(255, 43, 23);border-radius: 10px;padding: 10px;">
       <ion-chip color="primary">
@@ -226,6 +226,6 @@
         <ion-label>Bathroom</ion-label>
       </ion-chip>
     </div>
-  </div>
+  </div> -->
 </ion-content>
 

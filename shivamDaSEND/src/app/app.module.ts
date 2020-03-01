@@ -28,14 +28,14 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig)],
+  imports: [BrowserModule,IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig)],
   providers: [
-    StatusBar,NativeStorage,
+    StatusBar,
     SplashScreen,GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

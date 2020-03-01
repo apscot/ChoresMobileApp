@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import *as firebase from 'firebase';
+import { Storage } from '@ionic/storage';
+import { NavigationOptions } from '@ionic/angular/dist/providers/nav-controller';
 
 @Component({
   selector: 'app-dodont',
@@ -11,7 +12,15 @@ import *as firebase from 'firebase';
 })
 export class DodontPage implements OnInit {
 
-  
+  works:any[] = [];
+  work1s:any = [];
+  work2s:any = [];
+  work3s:any[] = [];
+  work4s:any[] = [];
+  work5s:any[] = [];
+  work6s:any[] = [];
+  work7s:any[] = [];
+
 
   Sweeping:boolean = false;
   Vacuuming:boolean = false;
@@ -42,514 +51,507 @@ export class DodontPage implements OnInit {
 
   family:string;
   city:string;
+  female:number = 1;
+  male:number = 2;
 
-  mName:string = '';
-  m:boolean = true;
-  // f:boolean = false;
-
-  m1Name:string = '';
+  m1n:string = null;
   m1:boolean = true;
-  // f1:boolean = false;
+  m1jp:string ='';
 
-  m2Name:string = '';
+  m2n:string = null;
   m2:boolean = true;
-  // f2:boolean = false;
+  m2jp:string ='';
 
-  m3Name:string = '';
+  m3n:string = null;
   m3:boolean = true;
-  // f3:boolean = false;
+  m3jp:string ='';
 
-  m4Name:string = '';
+  m4n:string = null;
   m4:boolean = true;
-  // f4:boolean = false;
+  m4jp:string ='';
 
-  m5Name:string = '';
+  m5n:string = null;
   m5:boolean = true;
-  // f5:boolean = false;
+  m5jp:string ='';
 
-  m6Name:string = '';
+  m6n:string = null;
   m6:boolean = true;
-  // f6:boolean = false;
+  m6jp:string ='';
 
-  jobProfile:string ='';
-  jobProfile1:string ='';
-  jobProfile2:string ='';
-  jobProfile3:string ='';
-  jobProfile4:string ='';
-  jobProfile5:string ='';
-  jobProfile6:string ='';
-  constructor(private navCtrl:NavController, private nativeStorage: NativeStorage, private rt:Router) { 
+  m7n:string = null;
+  m7:boolean = true;
+  m7jp:string ='';
+
+  constructor(private navCtrl:NavController, private nativeStorage: Storage, private rt:Router) { 
     // console.log(firebase.auth().currentUser.email);
   }
 
   ngOnInit() {
-    this.nativeStorage.getItem('config')
+    this.nativeStorage.get('info')
     .then(
       (data) => {
+        console.log(data);
         this.family = data.Family;
         this.city = data.City;
 
         if(this.family == "2"){
-          this.mName = data.p1.MName;
-          this.m = data.p1.Mmale;
-          // this.f = data.p1.Mfemale;
-          this.jobProfile = data.p1.Jp;
+          this.m1n = data.Members[0].Name;
+          this.m1 = data.Members[0].Male;
+          this.m1jp = data.Members[0].Job;
   
-          this.m1Name = data.p2.M1Name;
-          this.m1 = data.p2.M1male;
-          // this.f1 = data.p2.M1female;
-          this.jobProfile1 = data.p2.Jp1;
+          this.m2n = data.Members[1].Name;
+          this.m2 = data.Members[1].Male;
+          this.m2jp = data.Members[1].Job;
         }
         else if(this.family == "3"){
-          this.mName = data.p1.MName;
-          this.m = data.p1.Mmale;
-          // this.f = data.p1.Mfemale;
-          this.jobProfile = data.p1.Jp;
+          this.m1n = data.Members[0].Name;
+          this.m1 = data.Members[0].Male;
+          this.m1jp = data.Members[0].Job;
   
-          this.m1Name = data.p2.M1Name;
-          this.m1 = data.p2.M1male;
-          // this.f1 = data.p2.M1female;
-          this.jobProfile1 = data.p2.Jp1;
+          this.m2n = data.Members[1].Name;
+          this.m2 = data.Members[1].Male;
+          this.m2jp = data.Members[1].Job;
           
-          this.m2Name = data.p3.M2Name;
-          this.m2 = data.p3.M2male;
-          // this.f2 = data.p3.M2female;
-          this.jobProfile2 = data.p3.Jp2;
+          this.m3n = data.Members[2].Name;
+          this.m3 = data.Members[2].Male;
+          this.m3jp = data.Members[2].Job;
         }
 
         else if(this.family == "4"){
-          this.mName = data.p1.MName;
-          this.m = data.p1.Mmale;
-          // this.f = data.p1.Mfemale;
-          this.jobProfile = data.p1.Jp;
+          this.m1n = data.Members[0].Name;
+          this.m1 = data.Members[0].Male;
+          this.m1jp = data.Members[0].Job;
   
-          this.m1Name = data.p2.M1Name;
-          this.m1 = data.p2.M1male;
-          // this.f1 = data.p2.M1female;
-          this.jobProfile1 = data.p2.Jp1;
+          this.m2n = data.Members[1].Name;
+          this.m2 = data.Members[1].Male;
+          this.m2jp = data.Members[1].Job;
           
-          this.m2Name = data.p3.M2Name;
-          this.m2 = data.p3.M2male;
-          // this.f2 = data.p3.M2female;
-          this.jobProfile2 = data.p3.Jp2;
+          this.m3n = data.Members[2].Name;
+          this.m3 = data.Members[2].Male;
+          this.m3jp = data.Members[2].Job;
 
           
-          this.m3Name = data.p4.M3Name;
-          this.m3 = data.p4.M3male;
-          // this.f3 = data.p4.M3female;
-          this.jobProfile3 = data.p4.Jp3;
+          this.m4n = data.Members[3].Name;
+          this.m4 = data.Members[3].Male;
+          this.m4jp = data.Member[3].Job;
         }
 
         else if(this.family == "5"){
-          this.mName = data.p1.MName;
-          this.m = data.p1.Mmale;
-          // this.f = data.p1.Mfemale;
-          this.jobProfile = data.p1.Jp;
+          this.m1n = data.Members[0].Name;
+          this.m1 = data.Members[0].Male;
+          this.m1jp = data.Members[0].Job;
   
-          this.m1Name = data.p2.M1Name;
-          this.m1 = data.p2.M1male;
-          // this.f1 = data.p2.M1female;
-          this.jobProfile1 = data.p2.Jp1;
+          this.m2n = data.Members[1].Name;
+          this.m2 = data.Members[1].Male;
+          this.m2jp = data.Members[1].Job;
           
-          this.m2Name = data.p3.M2Name;
-          this.m2 = data.p3.M2male;
-          // this.f2 = data.p3.M2female;
-          this.jobProfile2 = data.p3.Jp2;
+          this.m3n = data.Members[2].Name;
+          this.m3 = data.Members[2].Male;
+          this.m3jp = data.Members[2].Job;
 
           
-          this.m3Name = data.p4.M3Name;
-          this.m3 = data.p4.M3male;
-          // this.f3 = data.p4.M3female;
-          this.jobProfile3 = data.p4.Jp3;
+          this.m4n = data.Members[3].Name;
+          this.m4 = data.Members[3].Male;
+          this.m4jp = data.Member[3].Job;
 
-          this.m4Name = data.p5.M4Name;
-          this.m4 = data.p5.M4male;
-          // this.f4 = data.p5.M4female;
-          this.jobProfile4 = data.p5.Jp4;
+          this.m5n = data.Members[4].Name;
+          this.m5 = data.Members[4].Male;
+          this.m5jp = data.Member[4].Job;
         }
         
         else if(this.family == "6"){
-          this.mName = data.p1.MName;
-          this.m = data.p1.Mmale;
-          // this.f = data.p1.Mfemale;
-          this.jobProfile = data.p1.Jp;
+          this.m1n = data.Members[0].Name;
+          this.m1 = data.Members[0].Male;
+          this.m1jp = data.Members[0].Job;
   
-          this.m1Name = data.p2.M1Name;
-          this.m1 = data.p2.M1male;
-          // this.f1 = data.p2.M1female;
-          this.jobProfile1 = data.p2.Jp1;
+          this.m2n = data.Members[1].Name;
+          this.m2 = data.Members[1].Male;
+          this.m2jp = data.Members[1].Job;
           
-          this.m2Name = data.p3.M2Name;
-          this.m2 = data.p3.M2male;
-          // this.f2 = data.p3.M2female;
-          this.jobProfile2 = data.p3.Jp2;
+          this.m3n = data.Members[2].Name;
+          this.m3 = data.Members[2].Male;
+          this.m3jp = data.Members[2].Job;
 
           
-          this.m3Name = data.p4.M3Name;
-          this.m3 = data.p4.M3male;
-          // this.f3 = data.p4.M3female;
-          this.jobProfile3 = data.p4.Jp3;
+          this.m4n = data.Members[3].Name;
+          this.m4 = data.Members[3].Male;
+          this.m4jp = data.Member[3].Job;
 
-          this.m4Name = data.p5.M4Name;
-          this.m4 = data.p5.M4male;
-          // this.f4 = data.p5.M4female;
-          this.jobProfile4 = data.p5.Jp4;
+          this.m5n = data.Members[4].Name;
+          this.m5 = data.Members[4].Male;
+          this.m5jp = data.Member[4].Job;
 
-          this.m5Name = data.p6.M5Name;
-          this.m5 = data.p6.M5male;
-          // this.f5 = data.p6.M5female;
-          this.jobProfile5 = data.p6.Jp5;
+          this.m6n = data.Members[5].Name;
+          this.m6 = data.Members[5].Male;
+          this.m6jp = data.Member[5].Job;
         }
 
         else {
-          this.mName = data.p1.MName;
-          this.m = data.p1.Mmale;
-          // this.f = data.p1.Mfemale;
-          this.jobProfile = data.p1.Jp;
+          this.m1n = data.Members[0].Name;
+          this.m1 = data.Members[0].Male;
+          this.m1jp = data.Members[0].Job;
   
-          this.m1Name = data.p2.M1Name;
-          this.m1 = data.p2.M1male;
-          // this.f1 = data.p2.M1female;
-          this.jobProfile1 = data.p2.Jp1;
+          this.m2n = data.Members[1].Name;
+          this.m2 = data.Members[1].Male;
+          this.m2jp = data.Members[1].Job;
           
-          this.m2Name = data.p3.M2Name;
-          this.m2 = data.p3.M2male;
-          // this.f2 = data.p3.M2female;
-          this.jobProfile2 = data.p3.Jp2;
+          this.m3n = data.Members[2].Name;
+          this.m3 = data.Members[2].Male;
+          this.m3jp = data.Members[2].Job;
 
           
-          this.m3Name = data.p4.M3Name;
-          this.m3 = data.p4.M3male;
-          // this.f3 = data.p4.M3female;
-          this.jobProfile3 = data.p4.Jp3;
+          this.m4n = data.Members[3].Name;
+          this.m4 = data.Members[3].Male;
+          this.m4jp = data.Member[3].Job;
 
-          this.m4Name = data.p5.M4Name;
-          this.m4 = data.p5.M4male;
-          // this.f4 = data.p5.M4female;
-          this.jobProfile4 = data.p5.Jp4;
+          this.m5n = data.Members[4].Name;
+          this.m5 = data.Members[4].Male;
+          this.m5jp = data.Member[4].Job;
 
-          this.m5Name = data.p6.M5Name;
-          this.m5 = data.p6.M5male;
-          // this.f5 = data.p6.M5female;
-          this.jobProfile5 = data.p6.Jp5;
-
+          this.m6n = data.Members[5].Name;
+          this.m6 = data.Members[5].Male;
+          this.m6jp = data.Member[5].Job;
           
-          this.m6Name = data.p7.M6Name;
-          this.m6 = data.p7.M6male;
-          // this.f6 = data.p7.M6female;
-          this.jobProfile6 = data.p7.Jp6;
+          this.m7n = data.Members[6].Name;
+          this.m7 = data.Members[6].Male;
+          this.m7jp = data.Member[6].Job;
         }
 
-        console.log(data);
       },
       error => console.error(error)
     );
+
+    
   }
 
     next(){
      if(this.family == "2"){
-      firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+       this.works = [];
+      this.check();
+      console.log(this.works.length);
+      let divided = this.works.length ;
+      console.log(divided, this.works);
+      this.work1s = [];
+      this.work2s = [];
+      for(let i=0; i<= divided-1; i+= 2){
+        this.work1s.push(this.works[i]);
+      }
 
-        person1Name: this.mName,
-        person1Male: this.m,
-        person1JP: this.jobProfile,
+      for(let j=0; j< divided-1; j+= 2){
+        this.work2s.push(this.works[1+j]);
+      }
+     
+    let navOption: NavigationOptions = {
+      queryParams: {
+        'w1': this.work1s,
+        'w2': this.work2s
+      }
+    }
+     
+      this.navCtrl.navigateRoot('deshboard', navOption)
 
-        person2Name: this.m1Name,
-        person2Male: this.m1,
-        person2JP: this.jobProfile1,
+      // firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+
+        // person1Name: this.m1n,
+        // person1Male: this.m,
+        // person1JP: this.jobProfile,
+
+        // person2Name: this.m2n,
+        // person2Male: this.m1,
+        // person2JP: this.jobProfile1,
       
-        dSweeping: this.Sweeping,
-        dVacuuming: this.Vacuuming,
-        dWashing_dishes: this.Washing_dishes,
-        dFeeding_pets: this.Feeding_pets,
-        dDoing_laundry: this.Doing_laundry,
-        dPreparing_meals: this.Preparing_meals,
-        dCleaning_bathrooms: this.Cleaning_bathrooms,
-        dDusting: this.Dusting,
+        // dSweeping: this.Sweeping,
+        // dVacuuming: this.Vacuuming,
+        // dWashing_dishes: this.Washing_dishes,
+        // dFeeding_pets: this.Feeding_pets,
+        // dDoing_laundry: this.Doing_laundry,
+        // dPreparing_meals: this.Preparing_meals,
+        // dCleaning_bathrooms: this.Cleaning_bathrooms,
+        // dDusting: this.Dusting,
 
-        wWashing_bedding: this.Washing_bedding,
-        wMopping_floors: this.Mopping_floors,
-        wWatering_plants: this.Watering_plants,
-        wMowing_the_lawn: this.Mowing_the_lawn,
-        wWeeding_the_garden: this.Weeding_the_garden,
-        wTaking_out_the_trash: this.Taking_out_the_trash,
-        wWash_the_car: this.Wash_the_car,
+        // wWashing_bedding: this.Washing_bedding,
+        // wMopping_floors: this.Mopping_floors,
+        // wWatering_plants: this.Watering_plants,
+        // wMowing_the_lawn: this.Mowing_the_lawn,
+        // wWeeding_the_garden: this.Weeding_the_garden,
+        // wTaking_out_the_trash: this.Taking_out_the_trash,
+        // wWash_the_car: this.Wash_the_car,
 
-        xmWashing_windows: this.Washing_windows,
-        xmBathing_pets: this.Bathing_pets,
-        xmClean_refrigerator: this.Clean_refrigerator,
-        xmChange_air_filters: this.Change_air_filters,
-        xmClean_blinds: this.Clean_blinds,
-        xmVacuum_curtains: this.Vacuum_curtains
+        // xmWashing_windows: this.Washing_windows,
+        // xmBathing_pets: this.Bathing_pets,
+        // xmClean_refrigerator: this.Clean_refrigerator,
+        // xmChange_air_filters: this.Change_air_filters,
+        // xmClean_blinds: this.Clean_blinds,
+        // xmVacuum_curtains: this.Vacuum_curtains
 
-      }).then((data)=> {
-        this.rt.navigate(['deshboard']);
-      }).catch((err)=> {
-        console.log(err)
-      });
+      // }).then((data)=> {
+      //   this.rt.navigate(['deshboard']);
+      // }).catch((err)=> {
+      //   console.log(err)
+      // });
 
       
-     } else if(this.family == "3"){
-      firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+    //  } else if(this.family == "3"){
+    //   firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
 
-        person1Name: this.mName,
-        person1Male: this.m,
-        person1JP: this.jobProfile,
+    //     person1Name: this.m1n,
+    //     person1Male: this.m,
+    //     person1JP: this.jobProfile,
 
-        person2Name: this.m1Name,
-        person2Male: this.m1,
-        person2JP: this.jobProfile1,
+    //     person2Name: this.m2n,
+    //     person2Male: this.m1,
+    //     person2JP: this.jobProfile1,
 
-        person3Name: this.m2Name,
-        person3Male: this.m2,
-        person3JP: this.jobProfile2,
+    //     person3Name: this.m3n,
+    //     person3Male: this.m2,
+    //     person3JP: this.jobProfile2,
       
-        dSweeping: this.Sweeping,
-        dVacuuming: this.Vacuuming,
-        dWashing_dishes: this.Washing_dishes,
-        dFeeding_pets: this.Feeding_pets,
-        dDoing_laundry: this.Doing_laundry,
-        dPreparing_meals: this.Preparing_meals,
-        dCleaning_bathrooms: this.Cleaning_bathrooms,
-        dDusting: this.Dusting,
+    //     dSweeping: this.Sweeping,
+    //     dVacuuming: this.Vacuuming,
+    //     dWashing_dishes: this.Washing_dishes,
+    //     dFeeding_pets: this.Feeding_pets,
+    //     dDoing_laundry: this.Doing_laundry,
+    //     dPreparing_meals: this.Preparing_meals,
+    //     dCleaning_bathrooms: this.Cleaning_bathrooms,
+    //     dDusting: this.Dusting,
 
-        wWashing_bedding: this.Washing_bedding,
-        wMopping_floors: this.Mopping_floors,
-        wWatering_plants: this.Watering_plants,
-        wMowing_the_lawn: this.Mowing_the_lawn,
-        wWeeding_the_garden: this.Weeding_the_garden,
-        wTaking_out_the_trash: this.Taking_out_the_trash,
-        wWash_the_car: this.Wash_the_car,
+    //     wWashing_bedding: this.Washing_bedding,
+    //     wMopping_floors: this.Mopping_floors,
+    //     wWatering_plants: this.Watering_plants,
+    //     wMowing_the_lawn: this.Mowing_the_lawn,
+    //     wWeeding_the_garden: this.Weeding_the_garden,
+    //     wTaking_out_the_trash: this.Taking_out_the_trash,
+    //     wWash_the_car: this.Wash_the_car,
 
-        xmWashing_windows: this.Washing_windows,
-        xmBathing_pets: this.Bathing_pets,
-        xmClean_refrigerator: this.Clean_refrigerator,
-        xmChange_air_filters: this.Change_air_filters,
-        xmClean_blinds: this.Clean_blinds,
-        xmVacuum_curtains: this.Vacuum_curtains
+    //     xmWashing_windows: this.Washing_windows,
+    //     xmBathing_pets: this.Bathing_pets,
+    //     xmClean_refrigerator: this.Clean_refrigerator,
+    //     xmChange_air_filters: this.Change_air_filters,
+    //     xmClean_blinds: this.Clean_blinds,
+    //     xmVacuum_curtains: this.Vacuum_curtains
 
-      }).then((data)=> {
-        this.rt.navigate(['deshboard']);
-      }).catch((err)=> {
-        console.log(err)
-      });
-     }  else if(this.family == "4"){
-      firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+    //   }).then((data)=> {
+    //     this.rt.navigate(['deshboard']);
+    //   }).catch((err)=> {
+    //     console.log(err)
+    //   });
+    //  }  else if(this.family == "4"){
+    //   firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
 
-        person1Name: this.mName,
-        person1Male: this.m,
-        person1JP: this.jobProfile,
+    //     person1Name: this.m1n,
+    //     person1Male: this.m,
+    //     person1JP: this.jobProfile,
 
-        person2Name: this.m1Name,
-        person2Male: this.m1,
-        person2JP: this.jobProfile1,
+    //     person2Name: this.m2n,
+    //     person2Male: this.m1,
+    //     person2JP: this.jobProfile1,
 
-        person3Name: this.m2Name,
-        person3Male: this.m2,
-        person3JP: this.jobProfile2,
+    //     person3Name: this.m3n,
+    //     person3Male: this.m2,
+    //     person3JP: this.jobProfile2,
 
-        person4Name: this.m3Name,
-        person4Male: this.m3,
-        person4JP: this.jobProfile3,
+    //     person4Name: this.m4n,
+    //     person4Male: this.m3,
+    //     person4JP: this.jobProfile3,
       
-        dSweeping: this.Sweeping,
-        dVacuuming: this.Vacuuming,
-        dWashing_dishes: this.Washing_dishes,
-        dFeeding_pets: this.Feeding_pets,
-        dDoing_laundry: this.Doing_laundry,
-        dPreparing_meals: this.Preparing_meals,
-        dCleaning_bathrooms: this.Cleaning_bathrooms,
-        dDusting: this.Dusting,
+    //     dSweeping: this.Sweeping,
+    //     dVacuuming: this.Vacuuming,
+    //     dWashing_dishes: this.Washing_dishes,
+    //     dFeeding_pets: this.Feeding_pets,
+    //     dDoing_laundry: this.Doing_laundry,
+    //     dPreparing_meals: this.Preparing_meals,
+    //     dCleaning_bathrooms: this.Cleaning_bathrooms,
+    //     dDusting: this.Dusting,
 
-        wWashing_bedding: this.Washing_bedding,
-        wMopping_floors: this.Mopping_floors,
-        wWatering_plants: this.Watering_plants,
-        wMowing_the_lawn: this.Mowing_the_lawn,
-        wWeeding_the_garden: this.Weeding_the_garden,
-        wTaking_out_the_trash: this.Taking_out_the_trash,
-        wWash_the_car: this.Wash_the_car,
+    //     wWashing_bedding: this.Washing_bedding,
+    //     wMopping_floors: this.Mopping_floors,
+    //     wWatering_plants: this.Watering_plants,
+    //     wMowing_the_lawn: this.Mowing_the_lawn,
+    //     wWeeding_the_garden: this.Weeding_the_garden,
+    //     wTaking_out_the_trash: this.Taking_out_the_trash,
+    //     wWash_the_car: this.Wash_the_car,
 
-        xmWashing_windows: this.Washing_windows,
-        xmBathing_pets: this.Bathing_pets,
-        xmClean_refrigerator: this.Clean_refrigerator,
-        xmChange_air_filters: this.Change_air_filters,
-        xmClean_blinds: this.Clean_blinds,
-        xmVacuum_curtains: this.Vacuum_curtains
+    //     xmWashing_windows: this.Washing_windows,
+    //     xmBathing_pets: this.Bathing_pets,
+    //     xmClean_refrigerator: this.Clean_refrigerator,
+    //     xmChange_air_filters: this.Change_air_filters,
+    //     xmClean_blinds: this.Clean_blinds,
+    //     xmVacuum_curtains: this.Vacuum_curtains
 
-      }).then((data)=> {
-        this.rt.navigate(['deshboard']);
-      }).catch((err)=> {
-        console.log(err)
-      });
-     } else if(this.family == "5"){
-      firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+    //   }).then((data)=> {
+    //     this.rt.navigate(['deshboard']);
+    //   }).catch((err)=> {
+    //     console.log(err)
+    //   });
+    //  } else if(this.family == "5"){
+    //   firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
 
-        person1Name: this.mName,
-        person1Male: this.m,
-        person1JP: this.jobProfile,
+    //     person1Name: this.m1n,
+    //     person1Male: this.m,
+    //     person1JP: this.jobProfile,
 
-        person2Name: this.m1Name,
-        person2Male: this.m1,
-        person2JP: this.jobProfile1,
+    //     person2Name: this.m2n,
+    //     person2Male: this.m1,
+    //     person2JP: this.jobProfile1,
 
-        person3Name: this.m2Name,
-        person3Male: this.m2,
-        person3JP: this.jobProfile2,
+    //     person3Name: this.m3n,
+    //     person3Male: this.m2,
+    //     person3JP: this.jobProfile2,
 
-        person4Name: this.m3Name,
-        person4Male: this.m3,
-        person4JP: this.jobProfile3,
+    //     person4Name: this.m4n,
+    //     person4Male: this.m3,
+    //     person4JP: this.jobProfile3,
 
-        person5Name: this.m4Name,
-        person5Male: this.m4,
-        person5JP: this.jobProfile4,
+    //     person5Name: this.m5n,
+    //     person5Male: this.m4,
+    //     person5JP: this.jobProfile4,
       
-        dSweeping: this.Sweeping,
-        dVacuuming: this.Vacuuming,
-        dWashing_dishes: this.Washing_dishes,
-        dFeeding_pets: this.Feeding_pets,
-        dDoing_laundry: this.Doing_laundry,
-        dPreparing_meals: this.Preparing_meals,
-        dCleaning_bathrooms: this.Cleaning_bathrooms,
-        dDusting: this.Dusting,
+    //     dSweeping: this.Sweeping,
+    //     dVacuuming: this.Vacuuming,
+    //     dWashing_dishes: this.Washing_dishes,
+    //     dFeeding_pets: this.Feeding_pets,
+    //     dDoing_laundry: this.Doing_laundry,
+    //     dPreparing_meals: this.Preparing_meals,
+    //     dCleaning_bathrooms: this.Cleaning_bathrooms,
+    //     dDusting: this.Dusting,
 
-        wWashing_bedding: this.Washing_bedding,
-        wMopping_floors: this.Mopping_floors,
-        wWatering_plants: this.Watering_plants,
-        wMowing_the_lawn: this.Mowing_the_lawn,
-        wWeeding_the_garden: this.Weeding_the_garden,
-        wTaking_out_the_trash: this.Taking_out_the_trash,
-        wWash_the_car: this.Wash_the_car,
+    //     wWashing_bedding: this.Washing_bedding,
+    //     wMopping_floors: this.Mopping_floors,
+    //     wWatering_plants: this.Watering_plants,
+    //     wMowing_the_lawn: this.Mowing_the_lawn,
+    //     wWeeding_the_garden: this.Weeding_the_garden,
+    //     wTaking_out_the_trash: this.Taking_out_the_trash,
+    //     wWash_the_car: this.Wash_the_car,
 
-        xmWashing_windows: this.Washing_windows,
-        xmBathing_pets: this.Bathing_pets,
-        xmClean_refrigerator: this.Clean_refrigerator,
-        xmChange_air_filters: this.Change_air_filters,
-        xmClean_blinds: this.Clean_blinds,
-        xmVacuum_curtains: this.Vacuum_curtains
+    //     xmWashing_windows: this.Washing_windows,
+    //     xmBathing_pets: this.Bathing_pets,
+    //     xmClean_refrigerator: this.Clean_refrigerator,
+    //     xmChange_air_filters: this.Change_air_filters,
+    //     xmClean_blinds: this.Clean_blinds,
+    //     xmVacuum_curtains: this.Vacuum_curtains
 
-      }).then((data)=> {
-        this.rt.navigate(['deshboard']);
-      }).catch((err)=> {
-        console.log(err)
-      });
-     } else if(this.family == "6"){
-      firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+    //   }).then((data)=> {
+    //     this.rt.navigate(['deshboard']);
+    //   }).catch((err)=> {
+    //     console.log(err)
+    //   });
+    //  } else if(this.family == "6"){
+    //   firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
 
-        person1Name: this.mName,
-        person1Male: this.m,
-        person1JP: this.jobProfile,
+    //     person1Name: this.m1n,
+    //     person1Male: this.m,
+    //     person1JP: this.jobProfile,
 
-        person2Name: this.m1Name,
-        person2Male: this.m1,
-        person2JP: this.jobProfile1,
+    //     person2Name: this.m2n,
+    //     person2Male: this.m1,
+    //     person2JP: this.jobProfile1,
 
-        person3Name: this.m2Name,
-        person3Male: this.m2,
-        person3JP: this.jobProfile2,
+    //     person3Name: this.m3n,
+    //     person3Male: this.m2,
+    //     person3JP: this.jobProfile2,
 
-        person4Name: this.m3Name,
-        person4Male: this.m3,
-        person4JP: this.jobProfile3,
+    //     person4Name: this.m4n,
+    //     person4Male: this.m3,
+    //     person4JP: this.jobProfile3,
 
-        person5Name: this.m4Name,
-        person5Male: this.m4,
-        person5JP: this.jobProfile4,
+    //     person5Name: this.m5n,
+    //     person5Male: this.m4,
+    //     person5JP: this.jobProfile4,
 
-        person6Name: this.m5Name,
-        person6Male: this.m5,
-        person6JP: this.jobProfile5,
+    //     person6Name: this.m6n,
+    //     person6Male: this.m5,
+    //     person6JP: this.jobProfile5,
       
-        dSweeping: this.Sweeping,
-        dVacuuming: this.Vacuuming,
-        dWashing_dishes: this.Washing_dishes,
-        dFeeding_pets: this.Feeding_pets,
-        dDoing_laundry: this.Doing_laundry,
-        dPreparing_meals: this.Preparing_meals,
-        dCleaning_bathrooms: this.Cleaning_bathrooms,
-        dDusting: this.Dusting,
+    //     dSweeping: this.Sweeping,
+    //     dVacuuming: this.Vacuuming,
+    //     dWashing_dishes: this.Washing_dishes,
+    //     dFeeding_pets: this.Feeding_pets,
+    //     dDoing_laundry: this.Doing_laundry,
+    //     dPreparing_meals: this.Preparing_meals,
+    //     dCleaning_bathrooms: this.Cleaning_bathrooms,
+    //     dDusting: this.Dusting,
 
-        wWashing_bedding: this.Washing_bedding,
-        wMopping_floors: this.Mopping_floors,
-        wWatering_plants: this.Watering_plants,
-        wMowing_the_lawn: this.Mowing_the_lawn,
-        wWeeding_the_garden: this.Weeding_the_garden,
-        wTaking_out_the_trash: this.Taking_out_the_trash,
-        wWash_the_car: this.Wash_the_car,
+    //     wWashing_bedding: this.Washing_bedding,
+    //     wMopping_floors: this.Mopping_floors,
+    //     wWatering_plants: this.Watering_plants,
+    //     wMowing_the_lawn: this.Mowing_the_lawn,
+    //     wWeeding_the_garden: this.Weeding_the_garden,
+    //     wTaking_out_the_trash: this.Taking_out_the_trash,
+    //     wWash_the_car: this.Wash_the_car,
 
-        xmWashing_windows: this.Washing_windows,
-        xmBathing_pets: this.Bathing_pets,
-        xmClean_refrigerator: this.Clean_refrigerator,
-        xmChange_air_filters: this.Change_air_filters,
-        xmClean_blinds: this.Clean_blinds,
-        xmVacuum_curtains: this.Vacuum_curtains
+    //     xmWashing_windows: this.Washing_windows,
+    //     xmBathing_pets: this.Bathing_pets,
+    //     xmClean_refrigerator: this.Clean_refrigerator,
+    //     xmChange_air_filters: this.Change_air_filters,
+    //     xmClean_blinds: this.Clean_blinds,
+    //     xmVacuum_curtains: this.Vacuum_curtains
 
-      }).then((data)=> {
-        this.rt.navigate(['deshboard']);
-      }).catch((err)=> {
-        console.log(err)
-      });
-     } else{
+    //   }).then((data)=> {
+    //     this.rt.navigate(['deshboard']);
+    //   }).catch((err)=> {
+    //     console.log(err)
+    //   });
+    //  } else{
 
-      firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
+    //   firebase.firestore().collection(firebase.auth().currentUser.email).doc(this.city).collection(this.family).add({
 
-        person1Name: this.mName,
-        person1Male: this.m,
-        person1JP: this.jobProfile,
+    //     person1Name: this.m1n,
+    //     person1Male: this.m,
+    //     person1JP: this.jobProfile,
 
-        person2Name: this.m1Name,
-        person2Male: this.m1,
-        person2JP: this.jobProfile1,
+    //     person2Name: this.m2n,
+    //     person2Male: this.m1,
+    //     person2JP: this.jobProfile1,
 
-        person3Name: this.m2Name,
-        person3Male: this.m2,
-        person3JP: this.jobProfile2,
+    //     person3Name: this.m3n,
+    //     person3Male: this.m2,
+    //     person3JP: this.jobProfile2,
 
-        person4Name: this.m3Name,
-        person4Male: this.m3,
-        person4JP: this.jobProfile3,
+    //     person4Name: this.m4n,
+    //     person4Male: this.m3,
+    //     person4JP: this.jobProfile3,
 
-        person5Name: this.m4Name,
-        person5Male: this.m4,
-        person5JP: this.jobProfile4,
+    //     person5Name: this.m5n,
+    //     person5Male: this.m4,
+    //     person5JP: this.jobProfile4,
 
-        person6Name: this.m5Name,
-        person6Male: this.m5,
-        person6JP: this.jobProfile5,
+    //     person6Name: this.m6n,
+    //     person6Male: this.m5,
+    //     person6JP: this.jobProfile5,
 
-        person7Name: this.m6Name,
-        person7Male: this.m6,
-        person7JP: this.jobProfile6,
+    //     person7Name: this.m7n,
+    //     person7Male: this.m6,
+    //     person7JP: this.jobProfile6,
       
-        dSweeping: this.Sweeping,
-        dVacuuming: this.Vacuuming,
-        dWashing_dishes: this.Washing_dishes,
-        dFeeding_pets: this.Feeding_pets,
-        dDoing_laundry: this.Doing_laundry,
-        dPreparing_meals: this.Preparing_meals,
-        dCleaning_bathrooms: this.Cleaning_bathrooms,
-        dDusting: this.Dusting,
+    //     dSweeping: this.Sweeping,
+    //     dVacuuming: this.Vacuuming,
+    //     dWashing_dishes: this.Washing_dishes,
+    //     dFeeding_pets: this.Feeding_pets,
+    //     dDoing_laundry: this.Doing_laundry,
+    //     dPreparing_meals: this.Preparing_meals,
+    //     dCleaning_bathrooms: this.Cleaning_bathrooms,
+    //     dDusting: this.Dusting,
 
-        wWashing_bedding: this.Washing_bedding,
-        wMopping_floors: this.Mopping_floors,
-        wWatering_plants: this.Watering_plants,
-        wMowing_the_lawn: this.Mowing_the_lawn,
-        wWeeding_the_garden: this.Weeding_the_garden,
-        wTaking_out_the_trash: this.Taking_out_the_trash,
-        wWash_the_car: this.Wash_the_car,
+    //     wWashing_bedding: this.Washing_bedding,
+    //     wMopping_floors: this.Mopping_floors,
+    //     wWatering_plants: this.Watering_plants,
+    //     wMowing_the_lawn: this.Mowing_the_lawn,
+    //     wWeeding_the_garden: this.Weeding_the_garden,
+    //     wTaking_out_the_trash: this.Taking_out_the_trash,
+    //     wWash_the_car: this.Wash_the_car,
 
-        xmWashing_windows: this.Washing_windows,
-        xmBathing_pets: this.Bathing_pets,
-        xmClean_refrigerator: this.Clean_refrigerator,
-        xmChange_air_filters: this.Change_air_filters,
-        xmClean_blinds: this.Clean_blinds,
-        xmVacuum_curtains: this.Vacuum_curtains
+    //     xmWashing_windows: this.Washing_windows,
+    //     xmBathing_pets: this.Bathing_pets,
+    //     xmClean_refrigerator: this.Clean_refrigerator,
+    //     xmChange_air_filters: this.Change_air_filters,
+    //     xmClean_blinds: this.Clean_blinds,
+    //     xmVacuum_curtains: this.Vacuum_curtains
 
-      }).then((data)=> {
-        this.rt.navigate(['deshboard']);
-      }).catch((err)=> {
-        console.log(err)
-      });
+      // }).then((data)=> {
+      //   this.rt.navigate(['deshboard']);
+      // }).catch((err)=> {
+      //   console.log(err)
+      // });
 
      }
 
@@ -623,5 +625,92 @@ export class DodontPage implements OnInit {
     }
     VacuumCurtains(){
       this.Vacuum_curtains =! this.Vacuum_curtains;
+    }
+
+
+    check(){
+      if(this.Sweeping == false){
+        this.works.push('Sweeping');
+      }
+
+      if(this.Vacuuming == false){
+        this.works.push('Vacuuming');
+      }
+
+      if(this.Washing_dishes == false){
+        this.works.push('Washing_dishes');
+      }
+
+      if(this.Feeding_pets == false){
+        this.works.push('Feeding_pets');
+      }
+
+      if(this.Doing_laundry == false){
+        this.works.push('Doing_laundry');
+      }
+
+      if(this.Preparing_meals == false){
+        this.works.push('Preparing_meals');
+      }
+
+      if(this.Cleaning_bathrooms == false){
+        this.works.push('Cleaning_bathrooms');
+      }
+
+      if(this.Dusting == false){
+        this.works.push('Dusting');
+      }
+
+      if(this.Washing_bedding == false){
+        this.works.push('Washing_bedding');
+      }
+
+      if(this.Mopping_floors == false){
+        this.works.push('Mopping_floors');
+      }
+
+      if(this.Watering_plants == false){
+        this.works.push('Watering_plants');
+      }
+
+      if(this.Mowing_the_lawn == false){
+        this.works.push('Mowing_the_lawn');
+      }
+
+      if(this.Weeding_the_garden == false){
+        this.works.push('Weeding_the_garden');
+      }
+
+      if(this.Taking_out_the_trash == false){
+        this.works.push('Taking_out_the_trash');
+      }
+
+      if(this.Wash_the_car == false){
+        this.works.push('Wash_the_car');
+      }
+
+      if(this.Washing_windows == false){
+        this.works.push('Washing_windows');
+      }
+
+      if(this.Bathing_pets == false){
+        this.works.push('Bathing_pets');
+      }
+
+      if(this.Clean_refrigerator == false){
+        this.works.push('Clean_refrigerator');
+      }
+
+      if(this.Change_air_filters == false){
+        this.works.push('Change_air_filters');
+      }
+
+      if(this.Clean_blinds == false){
+        this.works.push('Clean_blinds');
+      }
+
+      if(this.Vacuum_curtains == false){
+        this.works.push('Vacuum_curtains');
+      }
     }
 }

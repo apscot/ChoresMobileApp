@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import * as firebase from 'firebase';
 import { LoadingController, ToastController, NavController } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private googlePlus: GooglePlus, public loadingCtrl: LoadingController, public toastCtrl: ToastController,public navCtrl: NavController, private storage:NativeStorage) {
+  constructor(private googlePlus: GooglePlus, public loadingCtrl: LoadingController, public toastCtrl: ToastController,public navCtrl: NavController) {
     this.autoLogin();
    }
 
@@ -19,7 +18,7 @@ export class LoginPage implements OnInit {
   }
 
   autoLogin(){
-    this.navCtrl.navigateRoot('location-family');
+    this.navCtrl.navigateRoot('location');
     this.googlePlus.login({
       'webClientId': '716324348848-okflgb60bei6rc2gmir350od45ml7mre.apps.googleusercontent.com'
     }).then( async (res)=> {
@@ -31,11 +30,12 @@ export class LoginPage implements OnInit {
     
       setTimeout(() => {
         loading.dismiss();
-      }, 5000);
+      }, 2000);
+      
       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(async(suc) =>{
         let name = firebase.auth().currentUser.displayName;
-        this.storage.setItem('email', firebase.auth().currentUser.email );
-        this.navCtrl.navigateRoot('location-family');
+        // this.storage.setItem('email', firebase.auth().currentUser.email );
+        this.navCtrl.navigateRoot('location');
         let toast =await this.toastCtrl.create({
           message: "welcome " + name,
           duration: 3000
