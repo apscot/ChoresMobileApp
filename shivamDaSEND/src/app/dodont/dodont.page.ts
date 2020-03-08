@@ -22,32 +22,133 @@ export class DodontPage implements OnInit {
   work7s:any[] = [];
 
 
-  Sweeping:boolean = false;
-  Vacuuming:boolean = false;
-  Washing_dishes:boolean = false;
-  Feeding_pets:boolean = false;
-  Doing_laundry:boolean = false;
-  Preparing_meals:boolean = false;
-  Cleaning_bathrooms:boolean = false;
-  Dusting: boolean = false;
-
-  Washing_bedding:boolean = false;
-  Mopping_floors:boolean = false;
-  Watering_plants:boolean = false;
-  Mowing_the_lawn:boolean = false;
-  Weeding_the_garden:boolean = false;
-  Taking_out_the_trash:boolean = false;
-  Wash_the_car:boolean = false;
-
-  Washing_windows:boolean =false;
-  Bathing_pets:boolean = false;
-  Clean_refrigerator:boolean =false;
-  Change_air_filters:boolean =false;
-  Clean_blinds:boolean = false;
-  Vacuum_curtains: boolean = false;
+  // seeping:boolean = false;
   
+  // Vacuuming:boolean = false;
+  // Washing_dishes:boolean = false;
+  // Feeding_pets:boolean = false;
+  // Doing_laundry:boolean = false;
+  // Preparing_meals:boolean = false;
+  // Cleaning_bathrooms:boolean = false;
+  // Taking_out_the_trash:boolean = false;
 
 
+  // Washing_bedding:boolean = false;
+  // Mopping_floors:boolean = false;
+  // Watering_plants:boolean = false;
+  // Mowing_the_lawn:boolean = false;
+  // Wash_the_car:boolean = false;
+
+  // Washing_windows:boolean =false;
+  // Bathing_pets:boolean = false;
+  // Clean_refrigerator:boolean =false;
+  // Change_air_filters:boolean =false;
+  // Vacuum_curtains: boolean = false;
+
+  // Daily
+  Sweeping:any = {  
+    status : true,
+    value : 300,
+    isMale: false
+  }
+  Vacuuming:any = {  
+    status : true,
+    value : 300,
+    isMale: false
+  }
+  Washing_dishes:any = {  
+    status : true,
+    value : 500,
+    isMale: false
+  }
+  Feeding_pets:any = {  
+    status : true,
+    value : 200,
+    isMale: true
+  }
+  Doing_laundry:any = {  
+    status : true,
+    value : 500,
+    isMale: false
+  }
+  Preparing_meals:any = {  
+    status : true,
+    value : 1000,
+    isMale: false
+  }
+  Cleaning_bathrooms:any = {  
+    status : true,
+    value : 500,
+    isMale: true
+  }
+ 
+ 
+  //weekly
+  Grocery_Shopping :any = {  
+    status : true,
+    value : 200,
+    isMale: true
+  }
+  
+  Washing_bedding:any = {  
+    status : true,
+    value : 500,
+    isMale: false
+  }
+  Mopping_floors:any = {  
+    status : true,
+    value : 200,
+    isMale: false
+  }
+  Watering_plants:any = {  
+    status : true,
+    value : 50,
+    isMale: true
+  }
+  Mowing_the_lawn:any = {  
+    status : true,
+    value : 80,
+    isMale: true
+  }
+  Taking_out_the_trash:any = {  
+    status : true,
+    value : 4,
+    isMale: true
+  } 
+  Wash_the_car:any = {  
+    status : true,
+    value : 250,
+    isMale: true
+  }
+  
+  
+// monthly
+  Washing_windows:any = {  
+    status : true,
+    value : 200,
+    isMale: false
+  }
+  Bathing_pets:any = {  
+    status : true,
+    value : 100,
+    isMale: true
+  }
+  Clean_refrigerator:any = {  
+    status : true,
+    value : 250,
+    isMale: false
+  }
+  Change_air_filters:any = {  
+    status : true,
+    value : 100,
+    isMale: true
+  }
+  Vacuum_curtains:any = {  
+    status : true,
+    value : 100,
+    isMale: false
+  }
+  
 
   family:string;
   city:string;
@@ -84,6 +185,7 @@ export class DodontPage implements OnInit {
 
   constructor(private navCtrl:NavController, private nativeStorage: Storage, private rt:Router) { 
     // console.log(firebase.auth().currentUser.email);
+    console.log(this.Sweeping.status);
   }
 
   ngOnInit() {
@@ -231,15 +333,15 @@ export class DodontPage implements OnInit {
       console.log(this.works.length);
       let divided = this.works.length ;
       console.log(divided, this.works);
+      
       this.work1s = [];
       this.work2s = [];
-      for(let i=0; i<= divided-1; i+= 2){
-        this.work1s.push(this.works[i]);
+      var jobCheck = false;
+      const allWork = [this.work1s, this.work2s];
+      if(this.m1 == this.m2){
+        this.workDivideForAllMaleOrFemale(divided,allWork);
       }
-
-      for(let j=0; j< divided-1; j+= 2){
-        this.work2s.push(this.works[1+j]);
-      }
+     
      
     let navOption: NavigationOptions = {
       queryParams: {
@@ -561,156 +663,154 @@ export class DodontPage implements OnInit {
 
 
     sweep(){
-      this.Sweeping =! this.Sweeping;
+      this.Sweeping.status =! this.Sweeping.status;
     }
     vacu(){
-      this.Vacuuming =! this.Vacuuming;
+      this.Vacuuming.status =! this.Vacuuming.status;
     }
     WashD(){
-      this.Washing_dishes =! this.Washing_dishes;
+      this.Washing_dishes.status =! this.Washing_dishes.status;
     }
     FeedP(){
-      this.Feeding_pets =! this.Feeding_pets;
+      this.Feeding_pets.status =! this.Feeding_pets.status;
     }
     Laundry(){
-      this.Doing_laundry =! this.Doing_laundry;
+      this.Doing_laundry.status =! this.Doing_laundry.status;
     }
     PreMeals(){
-      this.Preparing_meals =! this.Preparing_meals;
+      this.Preparing_meals.status =! this.Preparing_meals.status;
     }
     CleanBathrooms(){
-      this.Cleaning_bathrooms =! this.Cleaning_bathrooms;
-    }
-    Dust(){
-      this.Dusting =! this.Dusting;
+      this.Cleaning_bathrooms.status =! this.Cleaning_bathrooms.status;
     }
 
     WashBed(){
-      this.Washing_bedding =! this.Washing_bedding;
+      this.Washing_bedding.status =! this.Washing_bedding.status;
     }
     MoppFloor(){
-      this.Mopping_floors =!this.Mopping_floors;
+      this.Mopping_floors.status =!this.Mopping_floors.status;
     }
     WaterPlant(){
-      this.Watering_plants =! this.Watering_plants;
+      this.Watering_plants.status =! this.Watering_plants.status;
     }
     MowingLawn(){
-      this.Mowing_the_lawn =! this.Mowing_the_lawn;
+      this.Mowing_the_lawn.status =! this.Mowing_the_lawn.status;
     }
-    WeedGarden(){
-      this.Weeding_the_garden =! this.Weeding_the_garden;
-    }
+
     TakingTrash(){
-      this.Taking_out_the_trash =! this.Taking_out_the_trash;
+      this.Taking_out_the_trash.status =! this.Taking_out_the_trash.status;
     }
     WashCar(){
-      this.Wash_the_car =! this.Wash_the_car;
+      this.Wash_the_car.status =! this.Wash_the_car.status;
     }
 
 
     WashWindow(){
-      this.Washing_windows =! this.Washing_windows;
+      this.Washing_windows.status =! this.Washing_windows.status;
     }
     BathPet(){
-      this.Bathing_pets =! this.Bathing_pets;
+      this.Bathing_pets.status =! this.Bathing_pets.status;
     }
     CleanRefrigerator(){
-      this.Clean_refrigerator = !this.Clean_refrigerator;
+      this.Clean_refrigerator.status = !this.Clean_refrigerator.status;
     }
     AirFilters(){
-      this.Change_air_filters =! this.Change_air_filters;
+      this.Change_air_filters.status =! this.Change_air_filters.status;
     }
-    CleanBlinds(){
-      this.Clean_blinds =! this.Clean_blinds;
-    }
+
     VacuumCurtains(){
-      this.Vacuum_curtains =! this.Vacuum_curtains;
+      this.Vacuum_curtains.status =! this.Vacuum_curtains.status;
     }
 
 
     check(){
-      if(this.Sweeping == false){
+      if(this.Sweeping.status == false){
         this.works.push('Sweeping');
       }
 
-      if(this.Vacuuming == false){
+      if(this.Vacuuming.status == false){
         this.works.push('Vacuuming');
       }
 
-      if(this.Washing_dishes == false){
+      if(this.Washing_dishes.status == false){
         this.works.push('Washing_dishes');
       }
 
-      if(this.Feeding_pets == false){
+      if(this.Feeding_pets.status == false){
         this.works.push('Feeding_pets');
       }
 
-      if(this.Doing_laundry == false){
+      if(this.Doing_laundry.status == false){
         this.works.push('Doing_laundry');
       }
 
-      if(this.Preparing_meals == false){
+      if(this.Preparing_meals.status == false){
         this.works.push('Preparing_meals');
       }
 
-      if(this.Cleaning_bathrooms == false){
+      if(this.Cleaning_bathrooms.status == false){
         this.works.push('Cleaning_bathrooms');
       }
 
-      if(this.Dusting == false){
-        this.works.push('Dusting');
-      }
-
-      if(this.Washing_bedding == false){
+      if(this.Washing_bedding.status == false){
         this.works.push('Washing_bedding');
       }
 
-      if(this.Mopping_floors == false){
+      if(this.Mopping_floors.status == false){
         this.works.push('Mopping_floors');
       }
 
-      if(this.Watering_plants == false){
+      if(this.Watering_plants.status == false){
         this.works.push('Watering_plants');
       }
 
-      if(this.Mowing_the_lawn == false){
+      if(this.Mowing_the_lawn.status == false){
         this.works.push('Mowing_the_lawn');
       }
 
-      if(this.Weeding_the_garden == false){
-        this.works.push('Weeding_the_garden');
-      }
-
-      if(this.Taking_out_the_trash == false){
+      if(this.Taking_out_the_trash.status == false){
         this.works.push('Taking_out_the_trash');
       }
 
-      if(this.Wash_the_car == false){
+      if(this.Wash_the_car.status == false){
         this.works.push('Wash_the_car');
       }
 
-      if(this.Washing_windows == false){
+      if(this.Washing_windows.status == false){
         this.works.push('Washing_windows');
       }
 
-      if(this.Bathing_pets == false){
+      if(this.Bathing_pets.status == false){
         this.works.push('Bathing_pets');
       }
 
-      if(this.Clean_refrigerator == false){
+      if(this.Clean_refrigerator.status == false){
         this.works.push('Clean_refrigerator');
       }
 
-      if(this.Change_air_filters == false){
+      if(this.Change_air_filters.status == false){
         this.works.push('Change_air_filters');
       }
 
-      if(this.Clean_blinds == false){
-        this.works.push('Clean_blinds');
-      }
-
-      if(this.Vacuum_curtains == false){
+      if(this.Vacuum_curtains.status == false){
         this.works.push('Vacuum_curtains');
       }
+    }
+
+
+    workDivideForAllMaleOrFemale(divided,allWork){
+      let j=0;
+      
+        for(let i=0; i<= divided-1; i+= 1){
+          //this.work1s.push(this.works[i]);
+          allWork[j].push(this.works[i]);
+          j++;
+          if(j>=allWork.length){
+            j=0;
+          }
+          
+         console.log(allWork);
+        }
+      
     }
 }
