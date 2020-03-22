@@ -673,6 +673,7 @@ export class DodontPage implements OnInit {
     check(){
 
       if(this.Sweeping.status == false){
+        console.log(this.Sweeping)
         this.works.push(this.Sweeping);
       }
       console.log("testing check ", this.works)

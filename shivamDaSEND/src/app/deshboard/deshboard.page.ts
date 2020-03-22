@@ -52,7 +52,6 @@ export class DeshboardPage implements OnInit {
     
       this.m1Name = data.Members[0].Name;
       this.m2Name = data.Members[1].Name;
-      console.log(this.getData, );
     });
 
     this.actr.queryParams.subscribe(data => {
