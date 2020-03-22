@@ -4,6 +4,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import *as firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { NavigationOptions } from '@ionic/angular/dist/providers/nav-controller';
+import { DodontclassService } from '../dodontclass.service';
 
 @Component({
   selector: 'app-dodont',
@@ -46,11 +47,9 @@ export class DodontPage implements OnInit {
   // Vacuum_curtains: boolean = false;
 
   // Daily
-  Sweeping:any = {  
-    status : true,
-    value : 300,
-    isMale: false
-  }
+
+   Sweeping = new DodontclassService(true,300,false,"Sweeping");
+
   Vacuuming:any = {  
     status : true,
     value : 300,
@@ -126,7 +125,7 @@ export class DodontPage implements OnInit {
   Washing_windows:any = {  
     status : true,
     value : 200,
-    isMale: false
+    cccc: false
   }
   Bathing_pets:any = {  
     status : true,
@@ -341,6 +340,30 @@ export class DodontPage implements OnInit {
       if(this.m1 == this.m2){
         this.workDivideForAllMaleOrFemale(divided,allWork);
       }
+      else{
+        console.log("else");
+       
+      
+       for(let i=0; i<= divided-1; i+= 1){
+          console.log("check works ismale", this.works[i].isMale);
+          console.log( this.m1);
+
+         if(this.works[i].isMale == this.m1){
+           this.work1s.push(this.works[i]);
+           console.log("1st div");
+         }
+         else if(this.works[i].isMale == this.m2){
+          this.work2s.push(this.works[i]);
+          console.log("2nd div");
+         }
+        
+        }
+      
+    
+
+      }
+    
+
      
      
     let navOption: NavigationOptions = {
