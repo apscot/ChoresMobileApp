@@ -49,106 +49,30 @@ export class DodontPage implements OnInit {
   // Daily
 
    Sweeping = new DodontclassService(true,300,false,"Sweeping");
+   Vacuuming = new DodontclassService(true,300,false,"Vacuuming");
+   Washing_dishes = new DodontclassService(true,500,false,"Washing_dishes");
+   Feeding_pets = new DodontclassService(true,200,true,"Feeding_pets");
+   Doing_laundry = new DodontclassService(true,500,false,"Doing_laundry");
+   Preparing_meals = new DodontclassService(true,1000,false,"Preparing_meals");
+   Cleaning_bathrooms = new DodontclassService(true,500,true,"Cleaning_bathrooms");
+   
+   //weekly
+   Grocery_Shopping = new DodontclassService(true,200,true,"Grocery_Shopping");
+   Washing_bedding = new DodontclassService(true,500,false,"Washing_bedding");
+   Mopping_floors = new DodontclassService(true,200,false,"Mopping_floors");
+   Watering_plants = new DodontclassService(true,50,true,"Watering_plants");
+   Mowing_the_lawn = new DodontclassService(true,80,true,"Mowing_the_lawn");
+   Taking_out_the_trash = new DodontclassService(true,4,true,"Taking_out_the_trash");
+   Wash_the_car = new DodontclassService(true,250,true,"Wash_the_car");
 
-  Vacuuming:any = {  
-    status : true,
-    value : 300,
-    isMale: false
-  }
-  Washing_dishes:any = {  
-    status : true,
-    value : 500,
-    isMale: false
-  }
-  Feeding_pets:any = {  
-    status : true,
-    value : 200,
-    isMale: true
-  }
-  Doing_laundry:any = {  
-    status : true,
-    value : 500,
-    isMale: false
-  }
-  Preparing_meals:any = {  
-    status : true,
-    value : 1000,
-    isMale: false
-  }
-  Cleaning_bathrooms:any = {  
-    status : true,
-    value : 500,
-    isMale: true
-  }
- 
- 
-  //weekly
-  Grocery_Shopping :any = {  
-    status : true,
-    value : 200,
-    isMale: true
-  }
-  
-  Washing_bedding:any = {  
-    status : true,
-    value : 500,
-    isMale: false
-  }
-  Mopping_floors:any = {  
-    status : true,
-    value : 200,
-    isMale: false
-  }
-  Watering_plants:any = {  
-    status : true,
-    value : 50,
-    isMale: true
-  }
-  Mowing_the_lawn:any = {  
-    status : true,
-    value : 80,
-    isMale: true
-  }
-  Taking_out_the_trash:any = {  
-    status : true,
-    value : 4,
-    isMale: true
-  } 
-  Wash_the_car:any = {  
-    status : true,
-    value : 250,
-    isMale: true
-  }
-  
-  
-// monthly
-  Washing_windows:any = {  
-    status : true,
-    value : 200,
-    cccc: false
-  }
-  Bathing_pets:any = {  
-    status : true,
-    value : 100,
-    isMale: true
-  }
-  Clean_refrigerator:any = {  
-    status : true,
-    value : 250,
-    isMale: false
-  }
-  Change_air_filters:any = {  
-    status : true,
-    value : 100,
-    isMale: true
-  }
-  Vacuum_curtains:any = {  
-    status : true,
-    value : 100,
-    isMale: false
-  }
-  
+   // monthly
+   Washing_windows = new DodontclassService(true,200,false,"Washing_windows");
+   Bathing_pets = new DodontclassService(true,100,true,"Bathing_pets");
+   Clean_refrigerator = new DodontclassService(true,250,false,"Clean_refrigerator");
+   Change_air_filters = new DodontclassService(true,100,true,"Change_air_filters");
+   Vacuum_curtains = new DodontclassService(true,100,false,"Vacuum_curtains");
 
+  
   family:string;
   city:string;
   female:number = 1;
@@ -329,7 +253,7 @@ export class DodontPage implements OnInit {
      if(this.family == "2"){
        this.works = [];
       this.check();
-      console.log(this.works.length);
+      console.log("length check ", this.works.length);
       let divided = this.works.length ;
       console.log(divided, this.works);
       
@@ -747,76 +671,77 @@ export class DodontPage implements OnInit {
 
 
     check(){
-      if(this.Sweeping.status == false){
-        this.works.push('Sweeping');
-      }
 
+      if(this.Sweeping.status == false){
+        this.works.push(this.Sweeping);
+      }
+      console.log("testing check ", this.works)
       if(this.Vacuuming.status == false){
-        this.works.push('Vacuuming');
+        this.works.push(this.Vacuuming);
       }
 
       if(this.Washing_dishes.status == false){
-        this.works.push('Washing_dishes');
+        this.works.push(this.Washing_dishes);
       }
 
       if(this.Feeding_pets.status == false){
-        this.works.push('Feeding_pets');
+        this.works.push(this.Feeding_pets);
       }
 
       if(this.Doing_laundry.status == false){
-        this.works.push('Doing_laundry');
+        this.works.push(this.Doing_laundry);
       }
 
       if(this.Preparing_meals.status == false){
-        this.works.push('Preparing_meals');
+        this.works.push(this.Preparing_meals);
       }
 
       if(this.Cleaning_bathrooms.status == false){
-        this.works.push('Cleaning_bathrooms');
+        this.works.push(this.Cleaning_bathrooms);
       }
 
       if(this.Washing_bedding.status == false){
-        this.works.push('Washing_bedding');
+        this.works.push(this.Washing_bedding);
       }
 
       if(this.Mopping_floors.status == false){
-        this.works.push('Mopping_floors');
+        this.works.push(this.Mopping_floors);
       }
 
       if(this.Watering_plants.status == false){
-        this.works.push('Watering_plants');
+        this.works.push(this.Watering_plants);
       }
 
       if(this.Mowing_the_lawn.status == false){
-        this.works.push('Mowing_the_lawn');
+        this.works.push(this.Mowing_the_lawn);
       }
 
       if(this.Taking_out_the_trash.status == false){
-        this.works.push('Taking_out_the_trash');
+        this.works.push(this.Taking_out_the_trash);
       }
 
       if(this.Wash_the_car.status == false){
-        this.works.push('Wash_the_car');
+        this.works.push(this.Wash_the_car);
       }
 
       if(this.Washing_windows.status == false){
-        this.works.push('Washing_windows');
+        this.works.push(this.Washing_windows);
       }
 
       if(this.Bathing_pets.status == false){
-        this.works.push('Bathing_pets');
+        this.works.push(this.Bathing_pets);
       }
 
       if(this.Clean_refrigerator.status == false){
-        this.works.push('Clean_refrigerator');
+        this.works.push(this.Clean_refrigerator);
       }
 
       if(this.Change_air_filters.status == false){
-        this.works.push('Change_air_filters');
+        this.works.push(this.Change_air_filters);
       }
 
       if(this.Vacuum_curtains.status == false){
-        this.works.push('Vacuum_curtains');
+        this.works.push(this.Vacuum_curtains);
       }
     }
 
@@ -826,14 +751,16 @@ export class DodontPage implements OnInit {
       
         for(let i=0; i<= divided-1; i+= 1){
           //this.work1s.push(this.works[i]);
+          console.log("testing22... ",this.works[i]);
           allWork[j].push(this.works[i]);
           j++;
           if(j>=allWork.length){
             j=0;
           }
           
-         console.log(allWork);
+         
         }
+        console.log("testing... ",allWork);
       
     }
 }
